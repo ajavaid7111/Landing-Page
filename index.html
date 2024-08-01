@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Javaid - AI Engineer Portfolio </title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p>Email me at: <a href="mailto:ajavaid7111@gmail.com">ajavaid7111@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+    
+   <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #ecf0f1;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        header.scrolled {
+            background: rgba(44, 62, 80, 0.9);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+        header ul {
+            display: flex;
+            list-style: none;
+        }
+        header li {
+            padding: 0 1rem;
+        }
+        header .highlight, header .current a {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #bdc3c7;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            background-image: url('');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+        #showcase {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            animation: fadeIn 2s;
+        }
+        #showcase h1 {
+            font-size: 4rem;
+            margin-bottom: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        #showcase p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        section {
+            padding: 4rem 0;
+        }
+        #about, #skills, #projects, #contact {
+            background: #ffffff;
+            margin-top: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: var(--secondary-color);
+            margin-top: 1rem;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .contact-info {
+            text-align: center;
+        }
+        footer {
+            background: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .social-icons {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        #about {
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+        }
+        #about img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 2rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        #about img:hover {
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .skill-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .skill {
+            text-align: right;
+            padding: 5px;
+            color: white;
+            border-radius: 10px;
+            position: relative;
+            animation: fillBar 2s ease-out;
+        }
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+        .ml { width: 90%; background-color: #3498db; }
+        .dl { width: 85%; background-color: #2ecc71; }
+        .nlp { width: 80%; background-color: #e67e22; }
+        .cv { width: 75%; background-color: #9b59b6; }
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        #back-to-top:hover {
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+        .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #typing-effect {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span class="highlight">Ahmed</span> Javaid</h1>
+            <nav>
+                <ul>
+                    <li><a href="#showcase">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="particles-js"></div>
+    <section id="showcase">
+        <div class="container">
+            <h1>Ahmed Javaid</h1>
+            <div id="typing-effect">Innovating at the Intersection of AI and Real-World Solutions</div>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <img src="Ai brain.jpeg" alt="Description" data-tilt>
+            
+            <div>
+                <h2>About Me</h2>
+                <p>As a visionary AI engineer, I stand at the forefront of technological innovation, crafting intelligent solutions that reshape industries and enhance human capabilities. With a profound understanding of machine learning, deep learning, and data science, I transform complex challenges into groundbreaking AI-driven applications.</p>
+                <p>My journey in AI is marked by a relentless pursuit of excellence, combining rigorous academic knowledge with hands-on industry experience. I specialize in developing scalable, efficient AI systems that not only meet current needs but anticipate future technological trends.</p>
+                <p>Driven by curiosity and a passion for innovation, I constantly explore the boundaries of AI, contributing to cutting-edge research and open-source projects. My goal is to harness the transformative power of AI to create meaningful impact, solving real-world problems and pushing the envelope of what's possible in technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Core Competencies</h2>
+            <div class="grid">
+                <div class="card" data-tilt>
+                    <img src="/ai image.webp" alt="Machine Learning">
+                    <h3>Machine Learning</h3>
+                    <p>Expert in developing and deploying sophisticated ML models, including supervised and unsupervised learning algorithms.</p>
+                    <div class="skill-bar">
+                        <div class="skill ml">90%</div>
+                    </div>
+                </div>
+                <div class="card" data-tilt>
+                    <img src="/machine learning.jpeg" alt="Deep Learning">
+                    <h3>Deep Learning</h3>
+                    <p>Proficient in designing and training complex neural networks using TensorFlow and PyTorch for various applications.</p>
+                    <div class="skill-bar">
+                        <div class="skill dl">85%</div>
+                    </div>
+                </div>
+                <div class="card" data-tilt>
+                    <img src="/Natural Language processing.jpeg" alt="Natural Language Processing">
+                    <h3>Natural Language Processing</h3>
+                    <p>Experienced in building advanced NLP systems for text analysis, sentiment analysis, and language understanding.</p>
+                    <div class="skill-bar">
+                        <div class="skill nlp">80%</div>
+                    </div>
+                </div>
+                <div class="card" data-tilt>
+                    <img src="/vision ai.jpeg" alt="Computer Vision">
+                    <h3>Computer Vision</h3>
+                    <p>Skilled in developing state-of-the-art computer vision models for image recognition, object detection, and segmentation.</p>
+                    <div class="skill-bar">
+                        <div class="skill cv">75%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="card project-card" data-tilt data-project="healthcare">
+                    <img src="Ai health.jpeg" alt="AI-Powered Healthcare Diagnostics">
+                    <h3>AI-Powered Healthcare Diagnostics</h3>
+                    <p>Developed a deep learning model achieving 98% accuracy in early disease detection, potentially saving thousands of lives.</p>
+                </div>
+                <div class="card project-card" data-tilt data-project="traffic">
+                    <img src="smart traffic.jpeg" alt="Intelligent Traffic Management System">
+                    <h3>Intelligent Traffic Management System</h3>
+                    <p>Created an AI-driven system that reduced urban traffic congestion by 30% through real-time data analysis and predictive modeling.</p>
+                </div>
+                <div class="card project-card" data-tilt data-project="finance">
+                    <img src="Ai Fiance.jpeg" alt="Natural Language Financial Advisor">
+                    <h3>Natural Language Financial Advisor</h3>
+                    <p>Built an NLP-based AI assistant that provides personalized financial advice, improving finacial decisions
+                        
+                     
